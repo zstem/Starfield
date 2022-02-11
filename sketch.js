@@ -6,12 +6,23 @@ function setup() {
   for(i = 0; i < count; i++){
     stars[i] = new Star();
   }
+  button = createButton('Start Star Drive');
+  button.center();
+  
+  state = 0;
+  button.mousePressed(start);
 }
 
-function draw() {
+function start() {
+  state = 1;
+}
+
+function draw() { 
   background(0);
-  for(i = 0; i < count; i++){
-    stars[i].show();
-    stars[i].move()
+  if(state == 1){
+      for(i = 0; i < count; i++){
+        stars[i].show();
+        stars[i].move();
+    }
   }
 }
